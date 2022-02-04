@@ -1,3 +1,23 @@
+:root {
+  --cor-primaria: #e21;
+  --cor-primaria-escura: #900;
+  --cor-fundo-1: #f7f7f7;
+  --cor-fundo-2: #fff;
+  --texto: #000;
+  --vantagens: rgba(0, 0, 0, 0.2);
+  --onda: url("/img/onda-clara.svg");
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cor-fundo-1: #111;
+    --cor-fundo-2: #000;
+    --texto: #fff;
+    --vantagens: rgba(255, 255, 255, 0.2);
+    --onda: url("/img/onda-escura.svg");
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,11 +30,12 @@ p {
   line-height: 26px;
 }
 body {
-  background: #f7f7f7;
+  background: var(--cor-fundo-1);
   display: grid;
   gap: 60px;
   justify-content: center;
   margin-top: 60px;
+  color: var(--texto);
 }
 .header {
   display: grid;
@@ -29,6 +50,9 @@ body {
   grid-template-columns: 1fr 1fr;
   max-width: 1000px;
 }
+.logo {
+  margin-bottom: 60px;
+}
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -38,14 +62,14 @@ body {
 .nav a {
   display: block;
   padding: 1rem 2rem;
-  background: #fff;
-  color: #000;
+  background: var(--cor-fundo-2);
+  color: var(--texto);
   text-transform: uppercase;
   border-radius: 4px;
-  border: #fff solid 2px;
+  border: var(--cor-fundo-2) solid 2px;
 }
 .nav a:hover {
-  border: #e21 solid 2px;
+  border: var(--cor-primaria) solid 2px;
 }
 
 .img-bik {
@@ -54,7 +78,7 @@ body {
 }
 
 .sobre {
-  background: #fff;
+  background: var(--cor-fundo-2);
   padding: 40px;
   text-align: right;
   position: relative;
@@ -78,19 +102,19 @@ body {
   font-size: 1.2rem;
   text-transform: uppercase;
   border-radius: 0.3rem;
-  background: #e21;
+  background: var(--cor-primaria);
   color: #fff;
   transition-duration: 0.3s;
 }
 .btn:hover {
-  background: #900;
+  background: var(--cor-primaria-escura);
 }
 
 .sobre::before {
   content: "";
   width: 60px;
   height: 5px;
-  background: #e21;
+  background: var(--cor-primaria);
   position: absolute;
   top: 35px;
   right: -30px;
@@ -100,8 +124,8 @@ body {
   margin: auto 0;
 }
 #label-vantagens {
-  background-image: url("/img/onda.svg");
-  color: rgba(0, 0, 0, 0.2);
+  background-image: var(--onda);
+  color: var(--vantagens);
   font-size: 4rem;
   font-weight: 700;
   padding: 40px;
@@ -111,20 +135,20 @@ body {
 }
 
 .lista {
-  background: #fff;
+  background: var(--cor-fundo-2);
   padding: 40px;
 }
 
 .funcoes {
   padding: 1rem;
   margin: 10px;
-  border-left: #fff solid 4px;
+  border-left: var(--cor-fundo-2) solid 4px;
 }
 .funcoes:nth-child(odd) {
-  background: #f7f7f7;
+  background: var(--cor-fundo-1);
 }
 .funcoes:hover {
-  border-left: #e21 solid 4px;
+  border-left: var(--cor-primaria) solid 4px;
 }
 
 .funcoes img {
@@ -133,7 +157,7 @@ body {
 }
 
 .footer {
-  background: #fff;
+  background: var(--cor-fundo-2);
   width: 100%;
   text-align: center;
   padding: 40px;
